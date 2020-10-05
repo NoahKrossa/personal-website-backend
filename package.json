@@ -8,7 +8,7 @@
     "lint:fix": "eslint \"src/**/*.{js, json}\" --fix"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": [
+    "src/**/*.{js,json}": [
       "eslint . --fix",
       "git add"
     ]
