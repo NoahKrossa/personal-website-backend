@@ -1,16 +1,16 @@
 {
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    
-    "rules": {},
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true,
+      "allowArrowFunctions": true,
+      "spread":true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {},
 
-    "plugins": ["prettier"],
-    "extends": [
-        "plugin:prettier/recommended"
-    ]
+  "plugins": ["prettier"],
+  "extends": ["prettier", "plugin:prettier/recommended"]
 }

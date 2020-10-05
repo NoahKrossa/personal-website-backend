@@ -20,5 +20,8 @@ app.use(logger('dev'))
 /** Using indexRouter */
 app.use('/', require('./rootRouter'))
 
+/** Connect to mongodb */
+require('./services/mongodb').conntect(process.env.MONGODB_URI)
+
 const PORT = process.env.PORT
 app.listen(PORT, () => console.log(`Express server running in port ${PORT}`))
