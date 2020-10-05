@@ -1,8 +1,12 @@
 const express = require('express')
 const APIRouter = express.Router()
+// const postController = require('./controllers/post.controller')
 
-APIRouter.get('/', (req, res) => {
-  res.send('hello world from API!')
-})
+/** POST ROUTES */
+/** GET */
+// APIRouter.get('/post/all', postController.getAllPosts)
+/** POST */
+/** PUT */
+/** DELETE */
 
 module.exports = APIRouter
