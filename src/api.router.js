@@ -1,10 +1,10 @@
 const express = require('express')
 const APIRouter = express.Router()
-// const postController = require('./controllers/post.controller')
+const postController = require('./controllers/post.controller')
 
 /** POST ROUTES */
 /** GET */
-// APIRouter.get('/post/all', postController.getAllPosts)
+APIRouter.get('/post/all', postController.getAllPosts)
 /** POST */
 /** PUT */
 /** DELETE */
