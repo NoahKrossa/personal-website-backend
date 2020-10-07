@@ -3,9 +3,7 @@ const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
 const logger = require('morgan')
-
-/** Use .env settings */
-if (process.env.NODE_ENV !== 'production') require('dotenv').config()
+const config = require('./app.config')
 
 /** Initialize express app */
 const app = express()
@@ -17,11 +15,12 @@ app.use(helmet())
 app.use(cors())
 app.use(logger('dev'))
 
-/** Using indexRouter */
-app.use('/', require('./rootRouter'))
+/** Using APIRouter */
+app.use('/api', require('./api.router'))
 
 /** Connect to mongodb */
-require('./services/mongodb').conntect(process.env.MONGODB_URI)
+require('./services/mongodb').conntect(config.mongodbURI + config.dbName)
 
-const PORT = process.env.PORT
-app.listen(PORT, () => console.log(`Express server running in port ${PORT}`))
+const PORT = config.port
+const ip = config.ip
+app.listen(PORT, ip, () => console.log(`Express server running in port ${PORT}`))

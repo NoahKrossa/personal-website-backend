@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint \"src/**/*.{js, json}\"",
-    "lint:fix": "eslint \"src/**/*.{js, json}\" --fix"
+    "lint:fix": "eslint \"src/**/*.{js, json}\" --fix",
+    "start": "node src/index.js"
   },
   "lint-staged": {
     "src/**/*.{js,json}": [
