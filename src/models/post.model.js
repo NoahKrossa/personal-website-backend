@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const moment = require('moment')
+const uuid = require('uuid')
 
 const postContentSchema = new mongoose.Schema({
   tagName: String,
@@ -15,7 +16,6 @@ const postContentSchema = new mongoose.Schema({
 const postSchema = new mongoose.Schema({
   publicId: {
     type: String,
-    default: require('uuid').v1(),
     unique: true
   },
   title: String,
@@ -34,7 +34,9 @@ postSchema.pre('save', function (next) {
   const post = this
   if (!post.isModified()) return next()
   post.lastEditDate = moment().unix()
+  post.publicId = uuid.v4()
   next()
 })
 
+postSchema.plugin(require('mongoose-beautiful-unique-validation'))
 module.exports = mongoose.model('posts', postSchema)
