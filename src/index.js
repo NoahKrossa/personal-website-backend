@@ -19,8 +19,7 @@ app.use(logger('dev'))
 app.use('/api', require('./api.router'))
 
 /** Connect to mongodb */
-require('./services/mongodb').conntect(config.mongodbURI + config.dbName)
+require('./services/mongodb').conntect(config.mongodbURI)
 
 const PORT = config.port
-const ip = config.ip
-app.listen(PORT, ip, () => console.log(`Express server running in port ${PORT}`))
+app.listen(PORT, () => console.log(`Express server running in port ${PORT}`))
