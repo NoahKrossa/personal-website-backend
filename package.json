@@ -6,15 +6,18 @@
   "scripts": {
     "lint": "eslint \"src/**/*.{js, json}\"",
     "lint:fix": "eslint \"src/**/*.{js, json}\" --fix",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "jest"
   },
   "lint-staged": {
     "src/**/*.{js,json}": [
-      "eslint . --fix"    ]
+      "eslint . --fix"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
     }
   },
   "keywords": [],
@@ -25,6 +28,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^4.1.1",
+    "jwt-simple": "^0.5.6",
     "moment": "^2.29.0",
     "mongoose": "^5.10.7",
     "mongoose-beautiful-unique-validation": "^7.1.1",
@@ -37,6 +41,7 @@
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
+    "jest": "^26.5.2",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2"
   }
