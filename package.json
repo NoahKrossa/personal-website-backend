@@ -10,9 +10,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,json}": [
-      "eslint . --fix",
-      "git add"
-    ]
+      "eslint . --fix"    ]
   },
   "husky": {
     "hooks": {
