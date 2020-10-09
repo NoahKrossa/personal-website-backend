@@ -4,25 +4,22 @@ const { auth } = require('./middlewares/auth.middleware')
 const postController = require('./controllers/post.controller')
 const userController = require('./controllers/user.controller')
 
-/** Protect API routes */
-APIRouter.use(auth)
-
 /**
  ** Post routes
  * */
 /** GET */
-APIRouter.get('/post/all', postController.getAllPosts)
-APIRouter.get('/post/postId/:postId', postController.getPostById)
+APIRouter.get('/post/all', auth, postController.getAllPosts)
+APIRouter.get('/post/postId/:postId', auth, postController.getPostById)
 /** POST */
-APIRouter.post('/post/add', postController.addNewPost)
+APIRouter.post('/post/add', auth, postController.addNewPost)
 /** PUT */
-APIRouter.patch('/post/update/:postId', postController.updatePost)
+APIRouter.patch('/post/update/:postId', auth, postController.updatePost)
 /** DELETE */
-APIRouter.delete('/post/remove/:postId', postController.removePost)
+APIRouter.delete('/post/remove/:postId', auth, postController.removePost)
 
 /**
  ** User routes
  */
-APIRouter.post('/user/create', userController.createUser)
+APIRouter.post('/user/auth', userController.authentificateUser)
 
 module.exports = APIRouter
