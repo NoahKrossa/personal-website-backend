@@ -1,7 +1,11 @@
 const express = require('express')
 const APIRouter = express.Router()
+const { auth } = require('./middlewares/auth.middleware')
 const postController = require('./controllers/post.controller')
 const userController = require('./controllers/user.controller')
+
+/** Protect API routes */
+APIRouter.use(auth)
 
 /**
  ** Post routes
