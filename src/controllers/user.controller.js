@@ -1,14 +1,20 @@
 const User = require('../models/user.model')
+const { createToken } = require('../services/jwt.service')
 
-const createUser = async (req, res) => {
+const authentificateUser = async (req, res) => {
   try {
-    const { body: userData } = req
-    let newUser = new User(userData)
-    newUser = await newUser.save()
-    res.json({
-      message: 'Added new user',
-      newUser
-    })
+    const { username, password } = req.body
+    const user = User.findOne({ name: username })
+    if (!user) {
+      console.log('Not registred user')
+      return res.sendStatus(400)
+    }
+    const passwordMatch = await User.passwordMatch(password, user.password)
+    if (!passwordMatch) {
+      console.log('Password and username not match')
+      return res.sendStatus(400)
+    }
+    res.cookie('token', createToken(user))
   } catch (e) {
     console.log(e)
     return res.sendStatus(500)
@@ -16,5 +22,5 @@ const createUser = async (req, res) => {
 }
 
 module.exports = {
-  createUser
+  authentificateUser
 }
