@@ -9,7 +9,7 @@ const userController = require('./controllers/user.controller')
  * */
 /** GET */
 APIRouter.get('/post/all', auth, postController.getAllPosts)
-APIRouter.get('/post/postId/:postId', auth, postController.getPostById)
+APIRouter.get('/post/:postId', auth, postController.getPostById)
 /** POST */
 // APIRouter.post('/post/add', auth, postController.addNewPost)
 // /** PUT */
