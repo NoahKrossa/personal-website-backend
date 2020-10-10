@@ -31,54 +31,54 @@ const getPostById = async (req, res) => {
   }
 }
 
-/** POST */
-const addNewPost = async (req, res) => {
-  const postData = req.body
-  try {
-    const doc = await Post.create(postData)
-    res.json({
-      message: 'Added new post',
-      doc
-    })
-  } catch (e) {
-    console.log(e)
-    return res.sendStatus(500)
-  }
-}
+// /** POST */
+// const addNewPost = async (req, res) => {
+//   const postData = req.body
+//   try {
+//     const doc = await Post.create(postData)
+//     res.json({
+//       message: 'Added new post',
+//       doc
+//     })
+//   } catch (e) {
+//     console.log(e)
+//     return res.sendStatus(500)
+//   }
+// }
 
-const removePost = async (req, res) => {
-  const { postId } = req.params
-  try {
-    await Post.findOneAndDelete({ publicId: postId }).exec()
-    res.status(200).json({
-      message: 'Post removed successfully',
-      postId
-    })
-  } catch (e) {
-    console.log(e)
-    return res.sendStatus(500)
-  }
-}
+// const removePost = async (req, res) => {
+//   const { postId } = req.params
+//   try {
+//     await Post.findOneAndDelete({ publicId: postId }).exec()
+//     res.status(200).json({
+//       message: 'Post removed successfully',
+//       postId
+//     })
+//   } catch (e) {
+//     console.log(e)
+//     return res.sendStatus(500)
+//   }
+// }
 
-const updatePost = async (req, res) => {
-  const { postId } = req.params
-  const postData = req.body
-  try {
-    await Post.updateOne({ publicId: postId }, postData).exec()
-    res.status(200).json({
-      message: 'Post updated successfully',
-      postId
-    })
-  } catch (e) {
-    console.log(e)
-    return res.sendStatus(500)
-  }
-}
+// const updatePost = async (req, res) => {
+//   const { postId } = req.params
+//   const postData = req.body
+//   try {
+//     await Post.updateOne({ publicId: postId }, postData).exec()
+//     res.status(200).json({
+//       message: 'Post updated successfully',
+//       postId
+//     })
+//   } catch (e) {
+//     console.log(e)
+//     return res.sendStatus(500)
+//   }
+// }
 
 module.exports = {
   getAllPosts,
-  getPostById,
-  addNewPost,
-  removePost,
-  updatePost
+  getPostById
+  // addNewPost,
+  // removePost,
+  // updatePost
 }

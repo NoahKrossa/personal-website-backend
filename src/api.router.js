@@ -11,11 +11,11 @@ const userController = require('./controllers/user.controller')
 APIRouter.get('/post/all', auth, postController.getAllPosts)
 APIRouter.get('/post/postId/:postId', auth, postController.getPostById)
 /** POST */
-APIRouter.post('/post/add', auth, postController.addNewPost)
-/** PUT */
-APIRouter.patch('/post/update/:postId', auth, postController.updatePost)
-/** DELETE */
-APIRouter.delete('/post/remove/:postId', auth, postController.removePost)
+// APIRouter.post('/post/add', auth, postController.addNewPost)
+// /** PUT */
+// APIRouter.patch('/post/update/:postId', auth, postController.updatePost)
+// /** DELETE */
+// APIRouter.delete('/post/remove/:postId', auth, postController.removePost)
 
 /**
  ** User routes
