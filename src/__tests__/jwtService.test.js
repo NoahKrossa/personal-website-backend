@@ -1,4 +1,3 @@
-const { expectCt } = require('helmet')
 const { createToken, decodeToken } = require('../services/jwt.service')
 
 const testerUser = {
