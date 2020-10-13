@@ -14,14 +14,12 @@ module.exports = {
     /** Check if token has not expired */
     if (moment().unix() > payload.exp) {
       console.log('session was expired')
-      res.clearCookie('token')
       return res.sendStatus(401)
     }
 
     /** Validate permis */
     if (req.method !== 'GET') {
       console.log('Only allowed GET request')
-      res.clearCookie('token')
       return res.sendStatus(401)
     }
 
