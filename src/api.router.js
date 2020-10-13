@@ -21,5 +21,6 @@ APIRouter.get('/post/:postId', auth, postController.getPostById)
  ** User routes
  */
 APIRouter.post('/user/auth', userController.authentificateUser)
+APIRouter.get('/user/logout', userController.closeSession)
 
 module.exports = APIRouter

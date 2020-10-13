@@ -27,6 +27,14 @@ const authentificateUser = async (req, res) => {
   }
 }
 
+const closeSession = (req, res) => {
+  res.clearCookie('token')
+  res.json({
+    message: 'Session closed'
+  })
+}
+
 module.exports = {
-  authentificateUser
+  authentificateUser,
+  closeSession
 }
