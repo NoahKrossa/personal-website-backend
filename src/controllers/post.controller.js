@@ -1,4 +1,5 @@
 const Post = require('../models/post.model')
+const PostInfo = require('../models/postInfo.model')
 
 /** GET */
 const getAllPosts = async (req, res) => {
@@ -29,6 +30,11 @@ const getPostById = async (req, res) => {
     console.log(e)
     return res.sendStatus(500)
   }
+}
+
+const getPostInfo = async (req, res) => {
+  const postInfo = await PostInfo.find().exec()
+  res.json(postInfo)
 }
 
 // /** POST */
@@ -77,7 +83,8 @@ const getPostById = async (req, res) => {
 
 module.exports = {
   getAllPosts,
-  getPostById
+  getPostById,
+  getPostInfo
   // addNewPost,
   // removePost,
   // updatePost
